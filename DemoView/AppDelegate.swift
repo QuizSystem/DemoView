@@ -16,8 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        let viewController = DemoViewController(nibName: "DemoViewController", bundle: nil)
-        self.window?.rootViewController = viewController
+        //let viewController = DemoViewController(nibName: "DemoViewController", bundle: nil)
+        let viewController = LoginViewController(nibName: "LoginViewController", bundle: nil)
+        let navigation = UINavigationController(rootViewController: viewController)
+        self.window?.rootViewController = navigation
         self.window?.makeKeyAndVisible()
         return true
     }

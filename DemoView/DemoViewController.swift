@@ -17,8 +17,9 @@ class DemoViewController: UIViewController {
         
         let pading:CGFloat = 1;
         let leftMarginHour:CGFloat = 5
+        let rightMarginEvent:CGFloat = 10
         let widthHour:CGFloat = 50
-        let widthRest:CGFloat = self.view.frame.width - widthHour - leftMarginHour
+        let widthRest:CGFloat = UIScreen.main.bounds.width - widthHour - leftMarginHour - rightMarginEvent
         
         //  draw Hour
         var d1hourBegin:CGFloat = 0;
@@ -30,7 +31,7 @@ class DemoViewController: UIViewController {
                 text = "0" + text
             }
             text = text + ":00"
-            drawText(text: text, x: leftMarginHour, y: y, width: widthHour, height: 50)
+            drawHour(text: text, x: leftMarginHour, y: y, width: widthHour, height: 50)
             if (index == 0) {
                 d1hourBegin = y;
             }
@@ -41,15 +42,15 @@ class DemoViewController: UIViewController {
         var d1hour:CGFloat = d1hourEnd - d1hourBegin;
         
         // draw Event
-        var a:[CGFloat] = [1, 3, 4, 11, 14, 15]
-        var b:[CGFloat] = [4, 5, 10, 13, 17, 18]
-        var n:Int = 6
+        var a:[CGFloat] = [1, 3, 4, 4, 4.2, 11, 14, 15]
+        var b:[CGFloat] = [4, 4, 5, 5, 5, 13, 17, 18]
+        var n:Int = 8
 
         var pairs:[(position: Int, count: Int)] = []
-        var count:Int = 1
+        var count = 1
         for i in 0...n-2 {
             print("i= ", i)
-            if (a[i]<a[i+1] && a[i+1]<b[i]) {
+            if (a[i]<=a[i+1] && a[i+1]<b[i]) {
                 count += 1
                 if (i == n-2) {
                     pairs += [(position: i+1, count: count)]
@@ -78,61 +79,32 @@ class DemoViewController: UIViewController {
                 let width:CGFloat = widthRest / CGFloat(count);
                 let height:CGFloat = (b[i] - a[i]) * d1hour;
                 let x:CGFloat = 60 + CGFloat(dem) * width
-                let y:CGFloat = a[i] * d1hour
-                drawEvent(x: x, y: y, width: width, height: height)
+                let y:CGFloat = 25 + a[i] * d1hour
+                drawEvent(text: "Mao", x: x, y: y, width: width, height: height)
                 dem += 1
             }
         }
-        
-        /*
-        for i in 0...n-1 {
-            for j in 0...n-1 {
-                if (a[i] < a[j] && a[j] < b[i]) || (a[i] < b[j] && b[j] < b[i]) {
-                    c[i] = c[i] + 1
-                }
-            }
-        }
-        
-        for i in 0...n-1 {
-            // a[i] = Gio bat dau, b[i] = Gio ket thuc, c[i] = so lan
-            // d1hour = khoang cach 1 gio
-            // widthRest = chieu rong cao lai
-            let x:CGFloat = 60;
-            let y:CGFloat = a[i] * d1hour;
-            //print(c[i])
-            let width:CGFloat = widthRest / CGFloat(c[i]);
-            let height:CGFloat = (b[i] - a[i]) * d1hour;
-            drawEvent(x: x, y: y, width: width, height: height)
-        }
- */
-        
-        // draw Event
-        //drawEvent(x: 60, y: 10, width: widthRest/2, height: 200)
-        //drawEvent(x: 60+widthRest/2+pading, y: 10, width: widthRest/2, height: 200)
-        //drawEvent(x: 60, y: 300, width: widthRest, height: 200)
-        //drawEvent(x: 60, y: 700, width: widthRest, height: 200)
-        
         
         // add contentSize for ScrollView
         var contentRect = CGRect.zero
         for view: UIView in self.myScrollView.subviews {
             contentRect = contentRect.union(view.frame)
         }
-        self.myScrollView.contentSize = CGSize(width: self.view.frame.size.width, height: contentRect.height)
+        self.myScrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: contentRect.height)
     }
     
-    func drawText(text: String, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat) {
+    func drawHour(text: String, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat) {
         let label:UILabel = UILabel(frame: CGRect(x: x, y: y, width: width, height: height))
         label.text = text
         myScrollView.addSubview(label)
     }
     
-    func drawEvent(x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat) {
+    func drawEvent(text: String, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat) {
         let myView:UIView = UIView(frame: CGRect(x: x, y: y, width: width, height: height))
         myView.backgroundColor = UIColor.orange
         myView.layer.borderWidth = 1.0
         let label:UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: width, height: height))
-        label.text = "Mao"
+        label.text = text
         label.textColor = UIColor.white
         label.textAlignment = .center
         myView.addSubview(label)

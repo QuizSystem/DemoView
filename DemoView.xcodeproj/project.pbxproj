@@ -12,6 +12,8 @@
 		30C4540C1DD07FC100308C54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30C4540A1DD07FC100308C54 /* LaunchScreen.storyboard */; };
 		30C454151DD07FDC00308C54 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C454131DD07FDC00308C54 /* DemoViewController.swift */; };
 		30C454161DD07FDC00308C54 /* DemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30C454141DD07FDC00308C54 /* DemoViewController.xib */; };
+		30CFB6AD1DD1D216001D2383 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CFB6AB1DD1D216001D2383 /* LoginViewController.swift */; };
+		30CFB6AE1DD1D216001D2383 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30CFB6AC1DD1D216001D2383 /* LoginViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		30C4540D1DD07FC100308C54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30C454131DD07FDC00308C54 /* DemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
 		30C454141DD07FDC00308C54 /* DemoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoViewController.xib; sourceTree = "<group>"; };
+		30CFB6AB1DD1D216001D2383 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		30CFB6AC1DD1D216001D2383 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				30C4540D1DD07FC100308C54 /* Info.plist */,
 				30C454131DD07FDC00308C54 /* DemoViewController.swift */,
 				30C454141DD07FDC00308C54 /* DemoViewController.xib */,
+				30CFB6AB1DD1D216001D2383 /* LoginViewController.swift */,
+				30CFB6AC1DD1D216001D2383 /* LoginViewController.xib */,
 			);
 			path = DemoView;
 			sourceTree = "<group>";
@@ -124,6 +130,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30CFB6AE1DD1D216001D2383 /* LoginViewController.xib in Resources */,
 				30C4540C1DD07FC100308C54 /* LaunchScreen.storyboard in Resources */,
 				30C454091DD07FC100308C54 /* Assets.xcassets in Resources */,
 				30C454161DD07FDC00308C54 /* DemoViewController.xib in Resources */,
@@ -137,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30CFB6AD1DD1D216001D2383 /* LoginViewController.swift in Sources */,
 				30C454151DD07FDC00308C54 /* DemoViewController.swift in Sources */,
 				30C454021DD07FC100308C54 /* AppDelegate.swift in Sources */,
 			);
@@ -292,6 +300,7 @@
 				30C454121DD07FC100308C54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
